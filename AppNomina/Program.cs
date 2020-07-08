@@ -13,18 +13,24 @@ namespace AppNomina
         static void Main(string[] args)
         {
             FacadeMain App = new FacadeMain();
-            int opcion = App.Home();
-            if(opcion == 1)
+            int opcion = 0;
+            do
             {
-                App.CrearEmpleado();
-            }else if(opcion == 2)
-            {
-                App.PagarSueldo();
+                opcion = App.Home();
+                if (opcion == 1)
+                {
+                    App.CrearEmpleado();
+                }
+                else if (opcion == 2)
+                {
+                    App.PagarSueldo();
+                }
+                else
+                {
+                    App.Salir();
+                }
             }
-            else
-            {
-                App.Salir();
-            }
+            while (opcion != 3);
 
             Console.ReadKey();
         }

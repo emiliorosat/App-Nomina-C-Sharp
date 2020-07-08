@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppNomina.Factory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,11 @@ namespace AppNomina.Facade
 {
     class FacadeMain
     {
+        List<IEmpleado> empleados = new List<IEmpleado>();
+        FacadeEmpleado App = new FacadeEmpleado();
         public int Home()
         {
-
+            Console.Clear();
             Console.WriteLine("################### Nomina ###################");
             Console.WriteLine("\nSeleccione una Opcion");
             Console.WriteLine("[1]Crear Empleado  [2]Pagar Sueldo  [3]Salir\n");
@@ -39,6 +42,7 @@ namespace AppNomina.Facade
 
         public void CrearEmpleado()
         {
+            Console.Clear();
             Console.WriteLine("############ Nomina:Nuevo Empleado ############");
             Console.WriteLine("\nSeleccione una Opcion");
             Console.WriteLine("[1]Empleado Tempo Completo  [2]Empleado Medio Tiempo");
@@ -49,7 +53,9 @@ namespace AppNomina.Facade
                 int opt = int.Parse(Console.ReadLine());
                 if (opt >= 1 || opt <= 3)
                 {
-                   
+                    Console.Clear();
+                    Console.WriteLine("############ Nomina:Nuevo Empleado ############");
+                    empleados.Add( App.CrearEmpleado(opt) );
                 }
                 else
                 {
@@ -67,6 +73,7 @@ namespace AppNomina.Facade
 
         public void PagarSueldo()
         {
+            Console.Clear();
             Console.WriteLine("######## Nomina:Situacion Nacional ########");
             Console.WriteLine("\nSeleccione una Opcion");
             Console.WriteLine("[1]Normal             [2]Cuarentena Fase 2");
@@ -77,7 +84,15 @@ namespace AppNomina.Facade
                 int opt = int.Parse(Console.ReadLine());
                 if (opt >= 1 || opt <= 3)
                 {
-
+                    Console.Clear();
+                    Console.WriteLine("######## Nomina:Pago Nomina ########");
+                    foreach (var empleado in empleados)
+                    {
+                        Console.WriteLine("Empleado: "+empleado.GetNombre());
+                        Console.WriteLine(App.PagarSueldo(opt, empleado));
+                        Console.WriteLine("\n");
+                    }
+                        Console.ReadKey();
                 }
                 else
                 {

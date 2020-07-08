@@ -10,19 +10,44 @@ namespace AppNomina.Factory
     {
         private string nombre;
         private double precioPorHora;
-        private string medioDePago;
+        private string medioDePago = "Cheque";
         private int horasDiarias = 9;
         private string tipoEmpleado = "Temporal";
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public double PrecioPorHora { get => precioPorHora; set => precioPorHora = value; }
-        public string MedioDePago { get => medioDePago; set => medioDePago = value; }
-        public int HorasDiarias { get => horasDiarias; set => horasDiarias = value; }
-        public string TipoEmpleado { get => tipoEmpleado;  }
+
+        public string GetCuentaBancaria()
+        {
+            return null;
+        }
+
+        public int GetHorasDiarias()
+        {
+            return this.horasDiarias;
+        }
+
+        public string GetNombre()
+        {
+            return this.nombre;
+        }
+
+        public double GetPrecioHora()
+        {
+            return this.precioPorHora;
+        }
 
         public void SetHorasDiariasATrabajar(int horas)
         {
             this.horasDiarias = horas;
+        }
+
+        public void SetNombre(string nombre)
+        {
+            this.nombre = nombre;
+        }
+
+        public void SetNumeroDeCuentaBancaria(string cuenta)
+        {
+            
         }
 
         public void SetPrecioHora(double precio)

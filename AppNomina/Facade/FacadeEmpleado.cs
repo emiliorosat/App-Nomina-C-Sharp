@@ -17,15 +17,21 @@ namespace AppNomina.Facade
         {
             IEmpleado nuevoEmpleado = empleadoFactory.NuevoEmpleado(tipo);
 
+            Console.Write("Nombre: ");
+            nuevoEmpleado.SetNombre(Console.ReadLine());
+            Console.Write("Precio Por Hora a Pagar: ");
+            nuevoEmpleado.SetPrecioHora(double.Parse(Console.ReadLine()));
+
             if (!typeof(ETemporero).IsInstanceOfType(nuevoEmpleado))
             {
-                
+                Console.Write("Numero de Cuenta: ");
+                nuevoEmpleado.SetNumeroDeCuentaBancaria(Console.ReadLine());
             }
 
             return nuevoEmpleado;
         }
 
-        public void PagarSueldo(int estado)
+        public string PagarSueldo(int estado, IEmpleado empleado)
         {
             SueldoContext pago;
 
@@ -42,7 +48,7 @@ namespace AppNomina.Facade
                 pago = new SueldoContext(new SCuarentenaTotal());
             }
 
-            string result = pago.CalculoDeSueldo();
+            return pago.CalculoDeSueldo(empleado.GetHorasDiarias(), empleado.GetPrecioHora());
 
         }
 

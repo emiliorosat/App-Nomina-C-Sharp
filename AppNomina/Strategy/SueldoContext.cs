@@ -15,9 +15,9 @@ namespace AppNomina.Strategy
             estrategia = sueldo;
         }
 
-        public void CalculoDeSueldo(int horas, double precio)
+        public string CalculoDeSueldo(int horas, double precio)
         {
-            this.estrategia.CalculoDeSueldo(horas, precio);
+            return this.estrategia.CalculoDeSueldo(horas, precio);
         }
     }
 }
