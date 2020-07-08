@@ -1,0 +1,130 @@
+﻿APP DE NOMINAS
+
+Esta aplicacion tendra dos funcionalidades: Nombramiento y Pago de empleados
+--
+En la funcionalidad de Nombramientos, se desea crear empleados. Para cada empleado nombrado, 
+se debe especificar el nombre y el precio por hora, además de otros detalles según el tipo de 
+empleado. 
+Tome en cuenta que en la organizacion existen 3 tipos de empleados.
+
+Tiempo completo:
+
+Este empleado cobra por cuenta bancaria
+
+Trabaja 8 horas
+
+ Medio tiempo:
+
+Este empleado cobra por cuenta bancaria
+
+Trabaja 4 horas
+
+ Temporero
+
+Este empleado cobra por cheque
+
+Trabaja 9 horas
+
+ 
+
+Tome en cuenta: Al momento de crear empleados de tipo tiempo completo, 
+y medio tiempo se debe especificar:
+
+# de horas diaria que trabajan
+Precio por hora
+Su numero de cuenta.
+ 
+
+Al momento de crear a los empleados temporeros, se debe especificar:
+
+# horas que trabaja.
+Precio por hora
+
+
+Nos interesa que la aplicacion este diseñada de tal manera que simplifique en el código 
+cliente la creacion de los distintos empleados. 
+Utilice un patrón de diseño para lograr delegar a otra clase esta funcionalidad.
+
+ 
+
+
+Dentro de esta misma funcionalidad, hay un punto importante a tomar en cuenta, y es 
+que por políticas de la organización, solo se puede haber un empleado temporero.
+
+Controlar con un patron de diseño que solo se pueda crearse una instancia de la 
+entidad que represente ese tipo de empleado.
+
+ --
+Funcionalidad Pagos
+
+En la funcionalidad pagos tenemos varios algoritmos para pagar. Cada algoritmo es valido y legal y 
+va a depender del momento que este viviendo el pais.
+
+Si estamos en tiempos normales
+
+El salario total resulta de calcular su salario diario por 30 dias.
+
+El salario diario es el producto de la cantidad de horas y el precio por hora.
+
+Se les calcula y descuenta AFP (2.87% del salario total) y ARS (3.04% del salario total)
+
+ 
+
+Si estamos en cuarentena Fase 2
+
+El salario total resulta de calcular su salario diario por 15 dias.
+
+Igualmente el salario diario es el producto de la cantidad de horas y el precio por hora.
+
+Solamente se les calcula y descuenta ARS (3.04% del salario total)
+
+ 
+
+Si estamos en cuarentena total
+
+El salario total resulta de calcular su salario diario por 7 dias.
+
+Igualmente el salario diario es el producto de la cantidad de horas y el precio por hora.
+
+No se les calcula ni AFP ni ARS
+
+ 
+
+Cada algoritmo de pago debe tener planteada la logica particular para cada uno descrita en las 
+lineas anteriores. Su funcionalidad real y accesible desde el exterior debe ser un mensaje en 
+pantalla que diga cual metodo de pago se esta usando y muestre el valor calculado del salario. 
+
+Como no queremos que el codigo cliente este fuertemente acoplado a esta lógica de pagos, aplique
+un patron de diseño para lograr ese desacoplamiento, y que permita en tiempo de ejecución decidir 
+cual algoritmo implementar.
+
+En la vista debe mostrar una interfaz de usuario que le permita al usuario del sistema elegir cual
+metodo de pago se va a utilizar.
+
+
+
+IMPORTANTE
+
+Tras analizar los requerimientos, piense y diseñe la aplicación tomando en cuenta dos cosas:
+
+Presentación /Vista/Layout. Elija la forma en que va a presentar las opciones, para que se pueda 
+elegir entre la funcionalidad de Nombramientos y de pagos. Y que al entrar en cada funcionalidad, 
+se pueda operar y elegir las distintas opciones de cada funcionalidad.
+
+ 
+
+Patrones de diseño En esta aplicación se requiere la implementación de 3 patrones de diseño. 
+Así que el diseño de su aplicación debe contemplar integrar los patrones en el diseño de las 
+clases de su proyecto (VALGAN LAS REDUNDANCIAS)
+
+
+Realice el diagrama UML de su aplicación que refleje las clases y los patrones de diseño 
+implementados
+
+Subir por esta via el proyecto comprimido, incluyendo dentro el UML
+
+
+Patrones a utilizar:
+-Factory
+-Strategy
+-Facade
